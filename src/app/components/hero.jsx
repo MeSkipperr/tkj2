@@ -1,6 +1,6 @@
 const HeroSection = ()=>{
     return(
-        <div className=" dark:bg-darkBg w-full h-dvh">
+        <div className=" bg-slate-500 w-full h-full">
 
         </div>
     )
