@@ -55,7 +55,7 @@ export function SidebarItem({ icon, text, active, alert }: { icon?: any; text?: 
         ${
           active
             ? "dark:bg-[#101012] bg-[#d6d6d6]"
-            : "hover:bg-[#d6d6d6cc]"
+            : "hover:bg-[#d6d6d6cc] hover:dark:bg-[#101012cc]"
         }
     `}
     >
