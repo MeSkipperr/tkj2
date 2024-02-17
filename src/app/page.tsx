@@ -80,7 +80,7 @@ export default function Home() {
         </Sidebar>
           )}
         <div className=" flex-grow h-dvh overflow-y-auto">
-          <HeroSection/>
+          <HeroSection mode={mode}/>
           <About/>
         </div>
       </div>
