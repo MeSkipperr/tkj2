@@ -23,7 +23,7 @@ const Navbar  = () => {
                 />
             </nav>
             {/* buttom navbar */}
-            <div className="lg:hidden fixed bottom-0 flex justify-around items-center z-50 w-full h-20 bg-white dark:bg-darkBg">
+            {/* <div className="lg:hidden fixed bottom-0 flex justify-around items-center z-50 w-full h-20 bg-white dark:bg-darkBg">
                 <a href="">
                     <GoHome size={35}                   className=' dark:text-white'/>
                 </a>
@@ -39,7 +39,7 @@ const Navbar  = () => {
                 <a href="">
                     <FiMenu size={35}                   className=' dark:text-white'/>
                 </a>
-            </div>
+            </div> */}
         </>
     );
 };

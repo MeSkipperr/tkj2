@@ -2,7 +2,7 @@
 import Navbar from './components/navbar';
 import { Sidebar, SidebarItem } from './components/sidebar';
 import HeroSection from './components/hero';
-import About from './components/about';
+import About from './components/member';
 
 import { useState,useEffect  } from 'react';
 
@@ -11,6 +11,7 @@ import { CiImageOn } from "react-icons/ci";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { LuUser2 } from "react-icons/lu";
 import { FiMenu } from "react-icons/fi";
+import Member from './components/member';
 
 export default function Home() {
   const [isLgScreen, setIsLgScreen] = useState(false);
@@ -79,9 +80,9 @@ export default function Home() {
           <SidebarItem icon={<FiMenu size={28} color={mode?'white':'black'}/>} text="Lainnya"/>
         </Sidebar>
           )}
-        <div className=" flex-grow h-dvh overflow-y-auto">
+        <div className=" flex-grow h-dvh overflow-y-auto dark:bg-darkBg">
           <HeroSection mode={mode}/>
-          <About/>
+          <Member/>
         </div>
       </div>
     </main>
