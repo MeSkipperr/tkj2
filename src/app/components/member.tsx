@@ -80,7 +80,7 @@ const Member = () => {
     }
 
     return (
-        <div className=" dark:bg-darkBg w-full pt-32 relative flex flex-col justify-center items-center ">
+        <div className=" dark:bg-darkBg w-full pt-40 relative flex flex-col justify-center items-center ">
             <p className='text-third text-lg font-extrabold absolute left-8 top-20 sm:left-[15%] sm:top-32 lg:left-0'>Anggota</p>
             <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {members.slice(numPreviewFirst, numPreviewSecond).map((person, index) => (
