@@ -24,19 +24,19 @@ const Navbar  = () => {
             </nav>
             {/* buttom navbar */}
             <div className="lg:hidden fixed bottom-0 flex justify-around items-center z-50 w-full h-20 bg-white dark:bg-darkBg">
-                <a href="">
+                <a href="/">
                     <GoHome size={35}                   className=' dark:text-white'/>
                 </a>
-                <a href="">
+                <a href="/album">
                     <CiImageOn size={35}                className=' dark:text-white'/>
                 </a>
-                <a href="">
+                <a href="/notif">
                     <IoMdNotificationsOutline size={35} className=' dark:text-white'/>
                 </a>
-                <a href="">
+                <a href="/user">
                     <LuUser2 size={35}                  className=' dark:text-white'/>
                 </a>
-                <a href="">
+                <a href="/more">
                     <FiMenu size={35}                   className=' dark:text-white'/>
                 </a>
             </div>

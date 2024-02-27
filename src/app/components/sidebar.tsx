@@ -3,6 +3,7 @@ import userPic from '../icons/1.png'
 import Image from 'next/image';
 import { ReactNode, useContext, useState,createContext } from 'react';
 import { SlArrowLeft ,SlArrowRight } from "react-icons/sl";
+import Link from 'next/link';
 
 import { useModeState } from './globaState';
 
@@ -12,17 +13,21 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { LuUser2 } from "react-icons/lu";
 import { FiMenu } from "react-icons/fi";
 
+import { usePathname } from 'next/navigation'
+
 export const SidebarCom = ()=>{
   const { mode,isLgScreen } = useModeState();
+  
+  const pathname = usePathname()
 
   return(
     isLgScreen&&(
       <Sidebar>
-        <SidebarItem link='/' icon={<GoHome size={28} color={mode?'white':'black'}/>} text="Beranda" active/>
-        <SidebarItem link='' icon={<CiImageOn size={28} color={mode?'white':'black'}/>} text="Album"/>
-        <SidebarItem link='/notifikasi' icon={<IoMdNotificationsOutline size={28} color={mode?'white':'black'}/>} text="Notifikasi" alert/>
-        <SidebarItem link='' icon={<LuUser2 size={28} color={mode?'white':'black'}/>} text="User"/>
-        <SidebarItem link='' icon={<FiMenu size={28} color={mode?'white':'black'}/>} text="Lainnya"/>
+        <SidebarItem link='/' icon={<GoHome size={28} color={mode?'white':'black'}/>} text="Beranda"   active={pathname === '/' ? true : false}/>
+        <SidebarItem link='/album' icon={<CiImageOn size={28} color={mode?'white':'black'}/>} text="Album"  active={pathname === '/album' ? true : false}/>
+        <SidebarItem link='/notif' icon={<IoMdNotificationsOutline size={28} color={mode?'white':'black'}/>} text="Notifikasi" alert active={pathname === '/notif' ? true : false}/>
+        <SidebarItem link='/user' icon={<LuUser2 size={28} color={mode?'white':'black'}/>} text="User" active={pathname === '/user' ? true : false}/>
+        <SidebarItem link='/more' icon={<FiMenu size={28} color={mode?'white':'black'}/>} text="Lainnya" active={pathname === '/more' ? true : false}/>
       </Sidebar>  
       )
   )
