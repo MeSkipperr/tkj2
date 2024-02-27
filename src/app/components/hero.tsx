@@ -1,7 +1,9 @@
-const HeroSection = ({ mode }: { mode?:Boolean })=>{
+import { useModeState } from './globaState';
+const HeroSection = ()=>{
     
+    const { mode } = useModeState();
     return(
-        <div className=" bg-white w-full h-full relative flex dark:bg-darkBg">
+        <div className=" bg-white w-full h-full relative flex dark:bg-darkBg mt-24">
             <div className="h-full  hidden lg:flex">
                 <div className="h-full w-40 flex flex-col justify-center items-center ">
                     <h1 className="text-[8rem] text-[#ececec] dark:text-[#101012] rotate-90">T</h1>

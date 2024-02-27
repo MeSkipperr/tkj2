@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 
 
+
 const Member = () => {
     const [members, setMembers] = useState([
         {
@@ -37,6 +38,8 @@ const Member = () => {
             image: userPic,
         },
     ])
+
+
 
     const [numPreviewFirst, setNumPreviewFirst] = useState(0);
     const [numPreviewSecond, setNumPreviewSecond] = useState(3);

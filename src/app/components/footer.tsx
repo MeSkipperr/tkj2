@@ -1,9 +1,12 @@
 import FooterBG from '../assets/lightFooter.svg';
 import FooterBGDark from '../assets/darkFooter.svg';
 import Image from 'next/image';
+import { useModeState } from './globaState';
 
 
-const Footer = ({ mode }: { mode?:Boolean })=>{
+const Footer = ()=>{
+    const { mode, setMode } = useModeState();
+
     return(
         <>
         <Image src={mode ? FooterBGDark : FooterBG} alt='footer background'  className='w-full'  />

@@ -1,7 +1,32 @@
+'use client'
 import userPic from '../icons/1.png'
 import Image from 'next/image';
 import { ReactNode, useContext, useState,createContext } from 'react';
 import { SlArrowLeft ,SlArrowRight } from "react-icons/sl";
+
+import { useModeState } from './globaState';
+
+import { GoHome } from "react-icons/go";
+import { CiImageOn } from "react-icons/ci";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { LuUser2 } from "react-icons/lu";
+import { FiMenu } from "react-icons/fi";
+
+export const SidebarCom = ()=>{
+  const { mode,isLgScreen } = useModeState();
+
+  return(
+    isLgScreen&&(
+      <Sidebar>
+        <SidebarItem link='/' icon={<GoHome size={28} color={mode?'white':'black'}/>} text="Beranda" active/>
+        <SidebarItem link='' icon={<CiImageOn size={28} color={mode?'white':'black'}/>} text="Album"/>
+        <SidebarItem link='/notifikasi' icon={<IoMdNotificationsOutline size={28} color={mode?'white':'black'}/>} text="Notifikasi" alert/>
+        <SidebarItem link='' icon={<LuUser2 size={28} color={mode?'white':'black'}/>} text="User"/>
+        <SidebarItem link='' icon={<FiMenu size={28} color={mode?'white':'black'}/>} text="Lainnya"/>
+      </Sidebar>  
+      )
+  )
+}
 
 interface SidebarProps {
     children: ReactNode;
@@ -9,7 +34,7 @@ interface SidebarProps {
 
 const SidebarContext = createContext<any>(true);
 
-export const Sidebar = ({ children }: SidebarProps) => {
+const Sidebar = ({ children }: SidebarProps) => {
     const[expanded,setExpanded] = useState(true)
     return(
         <aside className="h-dvh pt-1 bg-white dark:bg-darkBg ">
@@ -43,7 +68,7 @@ export const Sidebar = ({ children }: SidebarProps) => {
     )
 }
 
-export function SidebarItem({ icon, text, active, alert }: { icon?: any; text?: any; active?: any ; alert?:any }) {
+function SidebarItem({ icon, text, active, alert,link }: { icon?: any; text?: any; active?: any ; alert?:any ; link? : string}) {
   const { expanded } = useContext(SidebarContext)
   
   return (
@@ -59,34 +84,36 @@ export function SidebarItem({ icon, text, active, alert }: { icon?: any; text?: 
         }
     `}
     >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all dark:text-white ${
-          expanded ? "w-52 ml-3" : "w-0"
-        }`}
-      >
-        {text}
-      </span>
-      {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-[red] ${
-            expanded ? "" : "top-2"
+      <a href={link} className='flex'>
+        {icon}
+        <span
+          className={`overflow-hidden transition-all dark:text-white ${
+            expanded ? "w-52 ml-3" : "w-0"
           }`}
-        />
-      )}
-
-      {!expanded && (
-        <div
-          className={`
-          absolute left-full rounded-md px-2 py-1 ml-6
-          bg-white text-black dark:bg-darkBg dark:text-white text-sm
-          invisible opacity-20 -translate-x-3 transition-all
-          group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      `}
         >
           {text}
-        </div>
-      )}
+        </span>
+        {alert && (
+          <div
+            className={`absolute right-2 w-2 h-2 rounded bg-[red] ${
+              expanded ? "" : "top-2"
+            }`}
+          />
+        )}
+
+        {!expanded && (
+          <div
+            className={`
+            absolute left-full rounded-md px-2 py-1 ml-6
+            bg-white text-black dark:bg-darkBg dark:text-white text-sm
+            invisible opacity-20 -translate-x-3 transition-all
+            group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
+        `}
+          >
+            {text}
+          </div>
+        )}
+      </a>
     </li>
   )
 }
